@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+var lastRecord = require('./routes/last_record');
+
 var app = express();
 
 // view engine setup
@@ -22,8 +24,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+// app.use('/', index);
+app.get('/', function (req, res) {
+    res.sendfile('./views/view1/view1.html');
+});
 app.use('/users', users);
+app.use('/record/last', lastRecord);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

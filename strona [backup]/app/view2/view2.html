@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+</head>
+
+<body ng-controller="TestCtrl">
+<p> Wynik wywołania </p>
+<div ng-repeat="item in data">
+  {{item.id}}
+  {{item.name}}
+  {{item.username}}
+</div>
+<script>
+    var app = angular.module('test', [])
+    app.controller('TestCtrl', function ($scope, $http) {
+        $http.get("http://jsonplaceholder.typicode.com/users").then(function(res,status,xhr) {
+            $scope.data = res.data;
+        });
+    });
+</script>
+</body>
+
+</html>
