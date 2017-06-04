@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movester</string>
+    <string name="title_activity_tracking">Tracking</string>
+    <string name="title_activity_account_managing">Account managing</string>
+    <string name="title_activity_history_viewing">History viewing</string>
+    <string name="title_activity_loging">Loging</string>
+    <string name="title_activity_measuring">Measuring</string>
+    <string name="title_activity_settings_editing">Settings editing</string>
+    <string name="title_activity_registering">Registering</string>
+</resources>
