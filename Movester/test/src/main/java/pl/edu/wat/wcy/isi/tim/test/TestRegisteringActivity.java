@@ -9,13 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-
 import static pl.edu.wat.wcy.isi.tim.test.R.layout;
 
 /**
@@ -25,6 +18,7 @@ public class TestRegisteringActivity extends ActionBarActivity {
 
     String jsonString = null;
     JSONObject json = null;
+    String web = "http://www.google.com";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,18 +27,7 @@ public class TestRegisteringActivity extends ActionBarActivity {
     }
 
     public void onRegisterClick(View view) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try  {
-                    jsonString = getHtml("http://www.tibia.com");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        thread.start();
+        new DownloadFromUrlTask().execute(web);
 
         json = toJson(jsonString);
 
@@ -89,6 +72,7 @@ public class TestRegisteringActivity extends ActionBarActivity {
         return whole;
     }
     */
+    /*
     private String getHtml(String webPage) {
         String result = null;
         try {
@@ -111,4 +95,5 @@ public class TestRegisteringActivity extends ActionBarActivity {
         }
         return result;
     }
+    */
 }
