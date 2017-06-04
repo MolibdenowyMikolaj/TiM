@@ -10,14 +10,14 @@ var user = require('./routes/user');
 var history = require('./routes/history');
 
 // **
-// Data Base - MySQL, user: api, password: qwer, database: application
+// Data Base - MySQL, user: api, password: qwerMUSTANG69, database: application
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
 
-    host: 'localhost',
+    host: '192.168.1.111',
     user: 'api',
-    password: 'qwer',
+    password: 'qwerMUSTANG69',
     database: 'application'
 
 });

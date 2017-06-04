@@ -68,9 +68,8 @@
         <h2> Ostatni pomiar </h2>
         <p>Ostatni pomiar:</p>
         <p ng-repeat="pomiar in historia|limitTo:1">
-            {{pomiar.id}}
-            {{pomiar.name}}
-            {{pomiar.username}}
+            Długość: {{pomiar.length}}
+            Czas: {{pomiar.time}}
         </p>
     </script>
 
@@ -83,9 +82,8 @@
         <h2> Statystyki </h2>
         <p>Historia pomiarów:</p>
         <p ng-repeat="pomiar in historia">
-            {{pomiar.id}}
-            {{pomiar.name}}
-            {{pomiar.username}}
+            Długość: {{pomiar.length}}
+            Czas: {{pomiar.time}}
         </p>
     </script>
 
@@ -203,7 +201,7 @@
 
     <script>
         mainApp.controller('ostatniPomiarController', function ($scope, $http) {
-            $http.get("/user/data?id=1").then(function (res, status, xhr) {
+            $http.get("/history/last?id=0").then(function (res, status, xhr) {
                 $scope.historia = res.data;
                 console.log(res.data);
             }, function(error) {
@@ -214,7 +212,7 @@
 
     <script>
         mainApp.controller('statystykiController', function ($scope, $http) {
-            $http.get("/user/data?id=78").then(function (res, status, xhr) {
+            $http.get("/history?id=0").then(function (res, status, xhr) {
                 $scope.historia = res.data;
             });
         });
