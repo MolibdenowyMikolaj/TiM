@@ -7,7 +7,6 @@ router.get('/login', function (req, res, next) {
     app.connection.query('SELECT * FROM USER WHERE id_user = ?', id, function (err, rows, fields) {
         if (!err) {
             res.send(rows);
-            console.log(rows);
         }
         else {
             res.send({status: "ERROR", message: "Nieoczekiwany błąd"});
@@ -21,7 +20,6 @@ router.get('/data', function (req, res, next) {
     app.connection.query('SELECT * FROM USER WHERE id_user = ?', id, function (err, rows, fields) {
         if (!err) {
             res.send(rows);
-            console.log(rows);
         }
         else {
             res.send({status: "ERROR", message: "Nieoczekiwany błąd"});
@@ -35,7 +33,6 @@ router.get('/stats', function (req, res, next) {
     app.connection.query('SELECT * FROM USER WHERE id_user = ?', id, function (err, rows, fields) {
         if (!err) {
             res.send(rows);
-            console.log(rows);
         }
         else {
             res.send({status: "ERROR", message: "Nieoczekiwany błąd"});

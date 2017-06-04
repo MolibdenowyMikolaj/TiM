@@ -76,10 +76,8 @@
         <h2> Ostatni pomiar </h2>
         <p>Ostatni pomiar:</p>
         <p ng-repeat="pomiar in historia|limitTo:1">
-            {{pomiar.id_record}}
-            {{pomiar.id_user}}
-            {{pomiar.length}}
-            {{pomiar.time}}
+            Długość: {{pomiar.length}}
+            Czas: {{pomiar.time}}
         </p>
     </script>
 
@@ -92,23 +90,14 @@
         <h2> Statystyki </h2>
         <p>Historia pomiarów:</p>
         <p ng-repeat="pomiar in historia">
+            ID: {{pomiar.id_record}}
             Długość: {{pomiar.length}}
             Czas: {{pomiar.time}}
-            {{pomiar.id_record}}
-            {{pomiar.id_user}}
-            {{pomiar.length}}
-            {{pomiar.time}}
         </p>
     </script>
 
     <script type="text/ng-template" id="profil.htm">
         <h2> Profil </h2>
-        <p>Dane użytkownika:</p>
-        <p ng-repeat="pomiar in historia|limitTo:1">
-            {{pomiar.id}}
-            {{pomiar.name}}
-            {{pomiar.username}}
-        </p>
         <p>Zmiana profilu:</p>
         <table>
             <tr>
@@ -233,17 +222,8 @@
     </script>
 
     <script>
-        mainApp.controller('profilController', function ($scope, $http) {
-            $http.get("/user/data?id=78").then(function (res, status, xhr) {
-                $scope.historia = res.data;
-
-            });
-        });
-    </script>
-
-    <script>
         mainApp.controller('glownyController', function ($scope, $http) {
-            $http.get("/user/data?id=1").then(function (res, status, xhr) {
+            $http.get("/user/data?id=0").then(function (res, status, xhr) {
                 $scope.uzytkownik = res.data;
 
             });
@@ -252,13 +232,16 @@
 
 
     <script>
-        mainApp.controller('profilController', function ($scope) {
+        mainApp.controller('profilController', function ($scope, $http) {
+
             $scope.resetuj = function () {
-                $scope.profilImie = "Jan";
-                $scope.profilNazwisko = "Kowal";
-                $scope.profilEmail = "jan@wat.pl";
-                $scope.profilLogin = "JK";
-                $scope.profilNoweHaslo = "kocyk7";
+                $http.get("/user/data?id=0").then(function (res, status, xhr) {
+                    $scope.profilImie = res.data[0].first_name;
+                    $scope.profilNazwisko = res.data[0].last_name;
+                    $scope.profilEmail = res.data[0].e_mail;
+                    $scope.profilLogin = res.data[0].login;
+                    $scope.profilNoweHaslo = "****";
+                });
             }
 
             $scope.resetuj();
