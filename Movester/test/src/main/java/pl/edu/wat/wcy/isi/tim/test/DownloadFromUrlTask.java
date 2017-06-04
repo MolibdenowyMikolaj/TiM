@@ -40,5 +40,5 @@ public class DownloadFromUrlTask extends AsyncTask<String, Integer, String> {
 
     protected void onProgressUpdate(Integer number){}
 
-    protected void onPostExecute(String result){}
+    protected void onPostExecute(String string){}
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Test</string>
+    <string name="address">http://localhost:port/user/data?id=</string>
 </resources>
