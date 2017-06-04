@@ -19,13 +19,16 @@
 
 <body>
 <div ng-app="mainApp">
-    <table width="100%" ID="table1" style="margin: 0px;">
+    <table ng-controller="glownyController" width="100%" ID="table1" style="margin: 0px;">
         <tr>
             <td>
                 <h1>Krokomondo</h1>
+                </p>
             </td>
             <td>
-                <p>nazwa_uzytkownika</p>
+                <p ng-repeat="pomiar in uzytkownik|limitTo:1">
+                    nazwa_uzytkownika: {{pomiar.login}}
+                </p>
             </td>
         </tr>
         <tr>
@@ -33,7 +36,12 @@
                 <p>"To mały krok człowieka, lecz wielki skok dla ludzkości"</p>
             </td>
             <td>
-                <p>imie_uzytkownika, nazwisko_uzytkownika</p>
+                <p ng-repeat="pomiar in uzytkownik|limitTo:1">
+                    imie_uzytkownika: {{ pomiar.first_name }}
+                </p>
+                <p ng-repeat="pomiar in uzytkownik|limitTo:1">
+                    nazwisko_uzytkownika: {{ pomiar.last_name }}
+                </p>
             </td>
         </tr>
         <tr>
@@ -68,8 +76,10 @@
         <h2> Ostatni pomiar </h2>
         <p>Ostatni pomiar:</p>
         <p ng-repeat="pomiar in historia|limitTo:1">
-            Długość: {{pomiar.length}}
-            Czas: {{pomiar.time}}
+            {{pomiar.id_record}}
+            {{pomiar.id_user}}
+            {{pomiar.length}}
+            {{pomiar.time}}
         </p>
     </script>
 
@@ -84,6 +94,10 @@
         <p ng-repeat="pomiar in historia">
             Długość: {{pomiar.length}}
             Czas: {{pomiar.time}}
+            {{pomiar.id_record}}
+            {{pomiar.id_user}}
+            {{pomiar.length}}
+            {{pomiar.time}}
         </p>
     </script>
 
@@ -222,6 +236,15 @@
         mainApp.controller('profilController', function ($scope, $http) {
             $http.get("/user/data?id=78").then(function (res, status, xhr) {
                 $scope.historia = res.data;
+
+            });
+        });
+    </script>
+
+    <script>
+        mainApp.controller('glownyController', function ($scope, $http) {
+            $http.get("/user/data?id=1").then(function (res, status, xhr) {
+                $scope.uzytkownik = res.data;
 
             });
         });
