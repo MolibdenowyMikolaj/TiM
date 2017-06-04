@@ -6,9 +6,32 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
+var history = require('./routes/history');
 
-var lastRecord = require('./routes/last_record');
+// **
+// Data Base - MySQL, user: api, password: qwer, database: application
+
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+
+    host: 'localhost',
+    user: 'api',
+    password: 'qwer',
+    database: 'application'
+
+});
+
+connection.connect(function (err) {
+    if (err == null)
+        console.log('Connected to database');
+    else
+        console.log(err);
+});
+
+exports.connection = connection;
+
+// **
 
 var app = express();
 
@@ -24,12 +47,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', index);
-app.get('/', function (req, res) {
-    res.sendfile('./views/view1/view1.html');
-});
-app.use('/users', users);
-app.use('/record/last', lastRecord);
+app.use('/', index);
+app.use('/user', user);
+app.use('/history', history);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

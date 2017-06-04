@@ -203,7 +203,7 @@
 
     <script>
         mainApp.controller('ostatniPomiarController', function ($scope, $http) {
-            $http.get("http://localhost:3001/record/last").then(function (res, status, xhr) {
+            $http.get("/user/data?id=1").then(function (res, status, xhr) {
                 $scope.historia = res.data;
                 console.log(res.data);
             }, function(error) {
@@ -214,7 +214,7 @@
 
     <script>
         mainApp.controller('statystykiController', function ($scope, $http) {
-            $http.get("http://localhost:3001/record/last").then(function (res, status, xhr) {
+            $http.get("/user/data?id=78").then(function (res, status, xhr) {
                 $scope.historia = res.data;
             });
         });
@@ -222,7 +222,7 @@
 
     <script>
         mainApp.controller('profilController', function ($scope, $http) {
-            $http.get("http://localhost:3001/record/last").then(function (res, status, xhr) {
+            $http.get("/user/data?id=78").then(function (res, status, xhr) {
                 $scope.historia = res.data;
 
             });
