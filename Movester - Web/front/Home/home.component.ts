@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {HistoryService} from "../services/index";
+import {Record} from "../models/index"
 
 
 @Component({
@@ -6,15 +8,19 @@ import {Component, Input, OnInit} from '@angular/core';
     templateUrl: 'front/home/home.component.html'
 })
 export class HomeComponent {
-    //atributes
 
-    constructor() {
+    lastRecord : Record[];
+
+    constructor(private historyService: HistoryService) {
+        this.lastRecord = new Array<Record>();
     }
 
     ngOnInit() {
-        //TODO
+        this.historyService.loadLast(parseInt(localStorage.getItem("currentUser"),10)).then((record) => {
+            this.lastRecord = record;
+        }, function (err) {
+            console.log(err); // Error: "It broke"
+        });
     }
-
-
 
 }

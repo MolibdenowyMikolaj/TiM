@@ -10,12 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const index_1 = require("../services/index");
 let HomeComponent = class HomeComponent {
-    //atributes
-    constructor() {
+    constructor(historyService) {
+        this.historyService = historyService;
+        this.lastRecord = new Array();
     }
     ngOnInit() {
-        //TODO
+        this.historyService.loadLast(parseInt(localStorage.getItem("currentUser"), 10)).then((record) => {
+            this.lastRecord = record;
+        }, function (err) {
+            console.log(err); // Error: "It broke"
+        });
     }
 };
 HomeComponent = __decorate([
@@ -23,7 +29,7 @@ HomeComponent = __decorate([
         selector: 'home',
         templateUrl: 'front/home/home.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [index_1.HistoryService])
 ], HomeComponent);
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

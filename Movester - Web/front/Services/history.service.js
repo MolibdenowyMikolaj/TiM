@@ -18,12 +18,22 @@ let HistoryService = class HistoryService {
         this.http = http;
         this.token = localStorage.getItem('token');
     }
-    loadStats() {
+    loadStats(id) {
         let headers = new http_1.Headers();
         let authToken = localStorage.getItem("token");
         headers.append('Authorization', authToken);
         let options = new http_1.RequestOptions({ headers: headers });
-        return this.http.get("/history?id=0", options).toPromise().then(response => response.json())
+        return this.http.get("/history?id=" + id, options).toPromise().then(response => response.json())
+            .catch((reason) => {
+            console.log('Handle rejected promise (' + reason + ') here.');
+        });
+    }
+    loadLast(id) {
+        let headers = new http_1.Headers();
+        let authToken = localStorage.getItem("token");
+        headers.append('Authorization', authToken);
+        let options = new http_1.RequestOptions({ headers: headers });
+        return this.http.get("/history/last?id=" + id, options).toPromise().then(response => response.json())
             .catch((reason) => {
             console.log('Handle rejected promise (' + reason + ') here.');
         });

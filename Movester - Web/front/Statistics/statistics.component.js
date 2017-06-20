@@ -17,7 +17,7 @@ let StatisticsComponent = class StatisticsComponent {
         this.historia = new Array();
     }
     ngOnInit() {
-        this.historyService.loadStats().then((record) => {
+        this.historyService.loadStats(parseInt(localStorage.getItem("currentUser"), 10)).then((record) => {
             this.historia = record;
         }, function (err) {
             console.log(err); // Error: "It broke"

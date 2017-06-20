@@ -1,4 +1,7 @@
-﻿<div>
+﻿<nav class="navbar" *ngIf="isLogged">
+                <a (click)="logOut()">Wyloguj</a>
+</nav>
+<div>
     <div class="logo">
         <img src="../images/logo.png"/>
     </div>
@@ -6,16 +9,16 @@
         <table width="100%" ID="table2" style="margin: 0px;" *ngIf="isLogged" class="menu">
             <tr>
                 <td width="25%">
-                    <p><a routerLink="/home" routerLinkActive="active">Ostatni pomiar</a></p>
+                    <p><a routerLink="/home" routerLinkActive="active">Główna</a></p>
                 </td>
                 <td width="25%">
-                    <p><a href="#znajomi">Znajomi</a></p>
+                    <p><a routerLink="/social" routerLinkActive="active">Znajomi</a></p>
                 </td>
                 <td width="25%">
                     <p><a routerLink="/statistics" routerLinkActive="active">Statystyki</a></p>
                 </td>
                 <td width="25%">
-                    <p><a href="#profil">Profil</a></p>
+                    <p><a routerLink="/profile" routerLinkActive="active">Profil</a></p>
                 </td>
             </tr>
         </table>

@@ -1,1 +1,6 @@
-home
+<h2> Ostatni pomiar </h2>
+<p>Ostatni pomiar:</p>
+<p *ngFor="let pomiar of lastRecord">
+    Długość: {{pomiar.length}}
+    Czas: {{pomiar.time}}
+</p>

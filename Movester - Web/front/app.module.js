@@ -16,8 +16,11 @@ const app_routing_1 = require("./app.routing");
 const auth_guard_1 = require("./auth.guard");
 const index_1 = require("./services/index");
 const index_2 = require("./login/index");
-const index_3 = require("./home/index");
-const index_4 = require("./statistics/index");
+const index_3 = require("./register/index");
+const index_4 = require("./home/index");
+const index_5 = require("./social/index");
+const index_6 = require("./statistics/index");
+const index_7 = require("./profile/index");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -31,13 +34,16 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             index_2.LoginComponent,
-            index_3.HomeComponent,
-            index_4.StatisticsComponent
+            index_3.RegisterComponent,
+            index_4.HomeComponent,
+            index_5.SocialComponent,
+            index_6.StatisticsComponent,
+            index_7.ProfileComponent
         ],
         providers: [
             auth_guard_1.AuthGuard,
             index_1.AuthenticationService,
-            index_1.HistoryService,
+            index_1.UserService,
             index_1.HistoryService,
             http_2.BaseRequestOptions
         ],
