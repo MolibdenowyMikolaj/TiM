@@ -1,0 +1,20 @@
+﻿.logo {
+    margin-left: 35%;
+    width: 15%;
+}
+.menu {
+    text-align: center;
+    background-color: darkorange;
+    font-family: Rockwell;
+    font-weight: bold;
+}
+.body {
+    margin: auto;
+    width: 80%;
+    background-color: khaki;
+    border-radius: 8px;
+    border-color: darkorange;
+}
+.module {
+    text-align: center;
+}

@@ -1,0 +1,20 @@
+
+<h2> Statystyki </h2>
+<p>Historia pomiarów:</p>
+<p *ngFor="let pomiar of historia">
+    ID: {{pomiar.id_record}}
+    Długość: {{pomiar.length}}
+    Czas: {{pomiar.time}}
+</p>
+<script>
+    mainApp.controller('statystykiController', function ($scope, $http) {
+        $http.get("/history?id=0", {headers: {Authorization:"token"}}).then(function (res, status, xhr) {
+            $scope.historia = res.data;
+        });
+        $http.post("/user/login", {login: "moti", password: "palka"}).then(function (res, status, xhr) {
+            console.log(res);
+            localStorage.setItem('currentUser', res.data.body.id);
+            localStorage.setItem('token', res.data.body.token);
+        });
+    });
+</script>
