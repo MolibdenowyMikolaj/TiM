@@ -4,7 +4,8 @@
     position: relative;
     display: flex;
 }
-.navbar a:hover{
+
+.navbar a:hover {
     color: blue;
 }
 
@@ -30,7 +31,8 @@
 }
 
 .menu-selected {
-    color: blue;
+    background-color: chocolate;
+    border-radius: 16px;
 }
 
 .body {
