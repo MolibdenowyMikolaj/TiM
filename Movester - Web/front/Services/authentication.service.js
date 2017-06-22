@@ -19,6 +19,21 @@ let AuthenticationService = class AuthenticationService {
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
     }
+    register(username, password, firstName, lastName, email) {
+        return this.http.post('/user/register', { login: username, password: password, first_name: firstName, last_name: lastName, e_mail: email })
+            .map((response) => {
+            // check resonse
+            let res = response.json() && response.json().status;
+            if (res === 'OK') {
+                // return true to indicate successful register
+                return true;
+            }
+            else {
+                // return false to indicate failed register
+                return false;
+            }
+        });
+    }
     login(username, password) {
         return this.http.post('/user/login', { login: username, password: password })
             .map((response) => {
