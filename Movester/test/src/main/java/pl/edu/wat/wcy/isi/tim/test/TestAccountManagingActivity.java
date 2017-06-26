@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
@@ -15,7 +17,7 @@ import java.util.concurrent.ExecutionException;
  * Created by Ajron on 2017-05-21.
  */
 public class TestAccountManagingActivity extends ActionBarActivity {
-    String web = "http://localhost:port/user/data?id=0"; // JEST ZAINICJOWANA ZMIENNA GLOBALNA, ALE DO TESTOW ZMIENIAMY RECZNIE
+    String web = "http://172.23.242.190:3001/user/data?id=0";
 
     String jsonString = null;
     JSONObject json = null;
@@ -30,13 +32,20 @@ public class TestAccountManagingActivity extends ActionBarActivity {
         setContentView(R.layout.activity_test_account_managing);
     }
 
-    public void onStartMeasuringClick(View view) throws ExecutionException, InterruptedException {
+    public void onStartMeasuringClick(View view) throws ExecutionException, InterruptedException, JSONException {
         AsyncTask<String, Integer, String> task = new DownloadFromUrlTask();
         task.execute(web);
         jsonString = task.get();
 
         json = toJson(jsonString);
-/* KOD JEST DOBRY, ALE MUSI BYC DOBRY String web WPROWADZONY, ZEBY NIE WYKRZACZAC, DLATEGO W KOMENTARZU!
+
+        JSONArray jsonArray = new JSONArray(jsonString);
+
+        JSONObject jsonObject = jsonArray.getJSONObject(0);
+        text1 = jsonObject.getString("id_user");
+        text2 = jsonObject.getString("login");
+        text3 = jsonObject.getString("first_name");
+/*
         text1 = json.optString("id_user");
         text2 = json.optString("login");
         text3 = json.optString("password");

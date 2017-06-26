@@ -13,6 +13,9 @@ import java.net.URLConnection;
  * Created by Ajron on 2017-06-04.
  */
 public class DownloadFromUrlTask extends AsyncTask<String, Integer, String> {
+    static String id;
+    static String token;
+
     protected void onPreExecute(){}
 
     protected String doInBackground(String... webPage){
@@ -20,6 +23,7 @@ public class DownloadFromUrlTask extends AsyncTask<String, Integer, String> {
         try {
             URL url = new URL(webPage[0]);
             URLConnection urlConnection = url.openConnection();
+            urlConnection.setRequestProperty ("Authorization", token);
             InputStream is = urlConnection.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
 

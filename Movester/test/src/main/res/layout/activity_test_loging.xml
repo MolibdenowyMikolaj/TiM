@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <Button
+            android:text="Registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/button2"/>
+    <TextView
+            android:text="Login:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView3"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Login"
+            android:ems="10"
+            android:id="@+id/editText3"/>
+    <TextView
+            android:text="Password:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView4"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editText4" android:text="Password"/>
+    <Button
+            android:text="Log in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/button3" android:onClick="onLogInClick"/>
+</LinearLayout>

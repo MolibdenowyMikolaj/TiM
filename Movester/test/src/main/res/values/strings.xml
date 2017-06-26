@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Test</string>
+    <string name="app_name">Movester</string>
     <string name="address">http://localhost:port/user/data?id=</string>
 </resources>
