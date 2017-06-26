@@ -1,0 +1,29 @@
+﻿<nav class="navbar" *ngIf="isLogged">
+                <a (click)="logOut()">Wyloguj</a>
+</nav>
+<div>
+    <div class="logo">
+        <img src="../images/logo.png"/>
+    </div>
+    <div class="body">
+        <table width="100%" ID="table2" style="margin: 0px;" *ngIf="isLogged" class="menu">
+            <tr>
+                <td width="25%">
+                    <p><a routerLink="/home" routerLinkActive="active">Główna</a></p>
+                </td>
+                <td width="25%">
+                    <p><a routerLink="/social" routerLinkActive="active">Znajomi</a></p>
+                </td>
+                <td width="25%">
+                    <p><a routerLink="/statistics" routerLinkActive="active">Statystyki</a></p>
+                </td>
+                <td width="25%">
+                    <p><a routerLink="/profile" routerLinkActive="active">Profil</a></p>
+                </td>
+            </tr>
+        </table>
+        <div style="margin-top:30px" class="module">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

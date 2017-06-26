@@ -3,17 +3,44 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
   },
   "dependencies": {
+    "@angular/animations": "^4.0.3",
+    "@angular/common": "~4.0.0",
+    "@angular/compiler": "~4.0.0",
+    "@angular/compiler-cli": "~4.0.0",
+    "@angular/core": "~4.0.0",
+    "@angular/forms": "~4.0.0",
+    "@angular/http": "~4.0.0",
+    "@angular/platform-browser": "~4.0.0",
+    "@angular/platform-browser-dynamic": "~4.0.0",
+    "@angular/platform-server": "~4.0.0",
+    "@angular/router": "~4.0.0",
+    "@angular/tsc-wrapped": "~4.0.0",
+    "@angular/upgrade": "~4.0.0",
+    "angular-in-memory-web-api": "~0.3.1",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "ngx-bootstrap": "^1.6.6",
     "jade": "~1.11.0",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2",
-    "mysql": "^2.5.4"
+    "mysql": "^2.5.4",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.2.0",
+    "systemjs": "^0.19.47",
+    "zone.js": "^0.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.60",
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.3.0",
+    "typescript": "^2.2.2"
   }
 }
-
