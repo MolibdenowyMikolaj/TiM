@@ -15,6 +15,7 @@ import { HomeComponent } from './home/index';
 import { SocialComponent } from './social/index';
 import { StatisticsComponent } from './statistics/index';
 import { ProfileComponent } from './profile/index';
+import { PairsPipe } from "./pipes/index";
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { ProfileComponent } from './profile/index';
         HomeComponent,
         SocialComponent,
         StatisticsComponent,
-        ProfileComponent
+        ProfileComponent,
+        PairsPipe
     ],
     providers: [
         AuthGuard,

@@ -1,41 +1,41 @@
 <h2> Profil </h2>
 <p>Zmiana profilu:</p>
-<table *ngIf="user">
+<table *ngIf="user" class="mainProfileTile">
     <tr>
-        <td>
-            Nowe imię
+        <td class="profileTile">
+            Nowe imię:
         </td>
         <td>
             <input type="text" [(ngModel)]="user.first_name">
         </td>
     </tr>
     <tr>
-        <td>
-            Nowe nazwisko
+        <td class="profileTile">
+            Nowe nazwisko:
         </td>
         <td>
             <input type="text" [(ngModel)]="user.last_name">
         </td>
     </tr>
     <tr>
-        <td>
-            Nowy e-mail
+        <td class="profileTile">
+            Nowy e-mail:
         </td>
         <td>
             <input type="email" [(ngModel)]="user.e_mail">
         </td>
     </tr>
     <tr>
-        <td>
-            Nowy login
+        <td class="profileTile">
+            Nowy login:
         </td>
         <td>
             <input type="text" [(ngModel)]="user.login" >
         </td>
     </tr>
     <tr>
-        <td>
-            Nowe hasło
+        <td class="profileTile">
+            Nowe hasło:
         </td>
         <td>
             <input type="password" [(ngModel)]="user.password" autocomplete="off">
@@ -43,8 +43,8 @@
     </tr>
     <tr></tr>
     <tr>
-        <td>
-            Potwierdź zmiany hasłem
+        <td class="profileTile">
+            Potwierdź zmiany hasłem:
         </td>
         <td>
             <input type="password" [(ngModel)]="confirm_password" autocomplete="off">
@@ -57,3 +57,4 @@
         </td>
     </tr>
 </table>
+<br>

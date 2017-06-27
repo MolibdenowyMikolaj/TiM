@@ -1,6 +1,21 @@
-<h2> Ostatni pomiar </h2>
-<p>Ostatni pomiar:</p>
-<p *ngFor="let pomiar of lastRecord">
-    Długość: {{pomiar.length}}
-    Czas: {{pomiar.time}}
-</p>
+<table class="mainTileAlignmnent">
+    <tr class="mainTileMargin">
+        <td class="mainTile">
+            <h2> Witaj! </h2>
+            Czy zrobiłeś dziś więcej kroków od Twoich znajomych?
+        </td>
+        <td class="mainTile">
+            <h2> Mapka </h2>
+        </td>
+        <td class="mainTile">
+            <h2> Ostatni pomiar </h2>
+            <p>Ostatni pomiar:</p>
+            <p *ngFor="let pomiar of lastRecord">
+                Długość: {{pomiar.length}}
+                Czas: {{pomiar.time}}
+            </p>
+
+        </td>
+    </tr>
+</table>
+<br>

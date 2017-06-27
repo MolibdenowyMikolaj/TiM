@@ -9,14 +9,44 @@
     color: blue;
 }
 
+.mainLogin{
+    text-align: center;
+    background-color: darkred;
+    border-radius: 8px;
+    font-family: Rockwell;
+    font-weight: bold;
+}
+
+.loginTile{
+    background-color: lightyellow;
+    border-radius: 12px;
+    margin-left:35%;
+    margin-right:35%;
+    margin-bottom: 10px;
+    margin-inside: 50px;
+    width: 30%;
+}
+
+.loginLabel{
+    text-align: center;
+    font-weight: bold;
+    background-color: orange;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    margin-left:5%;
+    width: 55%;
+    margin: auto;
+}
+
 .logo {
-    margin-left: 35%;
+    margin-left: 40%;
     width: 15%;
 }
 
 .menu {
     text-align: center;
-    background-color: darkorange;
+    background-color: darkred;
+    border-radius: 8px;
     font-family: Rockwell;
     font-weight: bold;
 }
@@ -31,18 +61,92 @@
 }
 
 .menu-selected {
-    background-color: chocolate;
+    background-color: darkorange;
     border-radius: 16px;
+    font-size: larger;
 }
 
 .body {
     margin: auto;
-    width: 80%;
-    background-color: khaki;
+    width: 50%;
+    background-color: #ffdd33;
     border-radius: 8px;
-    border-color: darkorange;
+    border-color: orange;
 }
 
 .module {
     text-align: center;
+}
+
+
+.tile{
+    text-align: center;
+    margin-bottom: 2px;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: lightyellow;
+    border-radius: 8px;
+    width: 40%;
+}
+
+.tile:hover{
+    background-color: orange;
+    font-weight: bold;
+}
+
+.doubleTileAlignment{
+    margin: auto;
+    width: 96%;
+    height: 96%;
+}
+
+.doubleTile{
+    text-align: left;
+    background-color: lightyellow;
+    border-radius: 8px;
+    width: 48%;
+}
+
+.doubleTile:hover{
+    background-color: orange;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 48%;
+}
+
+.mainTileAlignmnent{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+.mainTileMargin{
+
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.mainTile{
+    text-align: center;
+    background-color: lightyellow;
+    border-radius: 12px;
+    width: 33%;
+    height: 80%;
+}
+
+.mainProfileTile{
+    background-color: lightyellow;
+    border-radius: 12px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.profileTile{
+    text-align: center;
+    font-weight: bold;
+    background-color: orange;
+    border-radius: 12px;
+    width: 33%;
+    height: 80%;
 }

@@ -13,7 +13,8 @@ export class AppComponent {
 
     searchText = '';
 
-    constructor(private authenticationService: AuthenticationService, private router : Router) {}
+    constructor(private authenticationService: AuthenticationService, private router : Router) {
+    }
 
     get isLogged() {
         if(localStorage.getItem('currentUser') && localStorage.getItem('token'))
