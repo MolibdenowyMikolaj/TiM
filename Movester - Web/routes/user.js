@@ -11,7 +11,6 @@ router.post('/login', function (req, res, next) {
             if(rows.length == 1) {
                 //create token
                 var token = app.encode(req, rows[0].id_user, login);
-                console.log(token);
                 // send token
                 res.send({status:200, body: { id: rows[0].id_user, token: token } });
             }
@@ -65,6 +64,7 @@ router.get('/data', function (req, res, next) {
             }
         });
     } else {
+        //TODO global info
         res.send({status: '401'});
     }
 });
