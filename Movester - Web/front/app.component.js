@@ -16,6 +16,7 @@ let AppComponent = class AppComponent {
     constructor(authenticationService, router) {
         this.authenticationService = authenticationService;
         this.router = router;
+        this.searchText = '';
     }
     get isLogged() {
         if (localStorage.getItem('currentUser') && localStorage.getItem('token'))
@@ -26,6 +27,15 @@ let AppComponent = class AppComponent {
     logOut() {
         this.authenticationService.logout();
         this.router.navigate(['/login']);
+    }
+    getStyle(url) {
+        if (url === this.router.url)
+            return "menu-selected";
+        else
+            return "menu";
+    }
+    search() {
+        this.searchText = 'Work in progress';
     }
 };
 AppComponent = __decorate([

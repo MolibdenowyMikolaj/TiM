@@ -1,7 +1,10 @@
 <h2> Statystyki </h2>
 <p>Historia pomiarów:</p>
-<p *ngFor="let pomiar of historia">
-    ID: {{pomiar.id_record}}
-    Długość: {{pomiar.length}}
-    Czas: {{pomiar.time}}
-</p>
+<div *ngFor="let pomiar of historia">
+    <div class="tile">
+        ID: {{pomiar.id_record}}
+        Długość: {{pomiar.length}}
+        Czas: {{pomiar.time}}
+    </div>
+</div>
+<br>

@@ -21,6 +21,7 @@ const index_4 = require("./home/index");
 const index_5 = require("./social/index");
 const index_6 = require("./statistics/index");
 const index_7 = require("./profile/index");
+const index_8 = require("./pipes/index");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -38,7 +39,8 @@ AppModule = __decorate([
             index_4.HomeComponent,
             index_5.SocialComponent,
             index_6.StatisticsComponent,
-            index_7.ProfileComponent
+            index_7.ProfileComponent,
+            index_8.PairsPipe
         ],
         providers: [
             auth_guard_1.AuthGuard,

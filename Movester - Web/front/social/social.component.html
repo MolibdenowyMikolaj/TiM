@@ -1,8 +1,41 @@
 <h2> Znajomi </h2>
 <p>Lista znajomych:</p>
-<p *ngFor="let friend of friends">
-    ID: {{friend.id_user}}
-    Imię: {{friend.first_name}}
-    Nazwisko: {{friend.last_name}}
-    e-mail: {{friend.e_mail}}
-</p>
+<table class="doubleTileAlignment">
+    <tr *ngFor="let friend of friends | pairs">
+        <td class="doubleTile">
+            <table>
+                <tr>
+                    <td>
+                        <img src="images/Walker.png" width="60" height="40"/>
+                    </td>
+                    <td>
+                        ID: {{friend[0].id_user}}
+                        <br>
+                        Imię: {{friend[0].first_name}}
+                        Nazwisko: {{friend[0].last_name}}
+                        <br>
+                        e-mail: {{friend[0].e_mail}}
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td class="doubleTile" *ngIf="friend[1]">
+            <table>
+                <tr>
+                    <td>
+                        <img src="images/Walker.png" width="60" height="40"/>
+                    </td>
+                    <td>
+                        ID: {{friend[1].id_user}}
+                        <br>
+                        Imię: {{friend[1].first_name}}
+                        Nazwisko: {{friend[1].last_name}}
+                        <br>
+                        e-mail: {{friend[1].e_mail}}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<br>

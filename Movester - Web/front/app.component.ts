@@ -11,7 +11,10 @@ import {AuthenticationService} from "./services/index";
 
 export class AppComponent {
 
-    constructor(private authenticationService: AuthenticationService, private router : Router) {}
+    searchText = '';
+
+    constructor(private authenticationService: AuthenticationService, private router : Router) {
+    }
 
     get isLogged() {
         if(localStorage.getItem('currentUser') && localStorage.getItem('token'))
@@ -23,5 +26,16 @@ export class AppComponent {
     logOut() {
         this.authenticationService.logout();
         this.router.navigate(['/login']);
+    }
+
+    getStyle(url:string) : string {
+        if(url === this.router.url)
+            return "menu-selected";
+        else
+            return "menu";
+    }
+
+    search() {
+        this.searchText = 'Work in progress';
     }
 }

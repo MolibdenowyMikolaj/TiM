@@ -11,7 +11,6 @@ router.post('/login', function (req, res, next) {
             if(rows.length == 1) {
                 //create token
                 var token = app.encode(req, rows[0].id_user, login);
-                console.log(token);
                 // send token
                 res.send({status:200, body: { id: rows[0].id_user, token: token } });
             }
@@ -31,15 +30,22 @@ router.post('/register', function (req, res, next) {
     var email = req.body.e_mail;
     var firstName = req.body.first_name;
     var lastName = req.body.last_name;
-    app.connection.query('INSERT INTO USER (login, password, frist_name, last_name, e_mail) VALUES (?,?,?,?,?); COMMIT;', [login, password, firstName, lastName, email], function (err, rows, fields) {
-        if (!err) {
-            res.send({status: 200});
-        }
-        else {
-            res.send({status: "ERROR", message: "Nieoczekiwany błąd"});
-            console.log(err);
+    app.connection.query('SELECT login FROM USER WHERE login = ?',[login],function(err, rows, fields) {
+        if(rows && rows.length == 0) {
+            app.connection.query('INSERT INTO USER (login, password, first_name, last_name, e_mail) VALUES (?,?,?,?,?)', [login, password, firstName, lastName, email], function (err, rows, fields) {
+                if (!err) {
+                    res.send({status: "OK"});
+                }
+                else {
+                    res.send({status: "ERROR"});
+                    console.log(err);
+                }
+            });
+        } else {
+            res.send({status: "ERROR", message: "Użytkownik istnieje"});
         }
     });
+
 });
 
 router.get('/data', function (req, res, next) {
@@ -58,6 +64,7 @@ router.get('/data', function (req, res, next) {
             }
         });
     } else {
+        //TODO global info
         res.send({status: '401'});
     }
 });

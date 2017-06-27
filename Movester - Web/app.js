@@ -17,7 +17,7 @@ var history = require('./routes/history');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
 
-    host: '192.168.1.111',
+    host: '172.23.242.191',
     user: 'api',
     password: 'qwerMUSTANG69',
     database: 'application'
@@ -62,6 +62,13 @@ exports.encode = function(req, id, login) {
 
 exports.decode = function(token) {
     return jwt.decode(token, secret);
+}
+
+exports.validate = function(token) {
+    if(token)
+        return true;
+    else
+        return false;
 }
 
 // **

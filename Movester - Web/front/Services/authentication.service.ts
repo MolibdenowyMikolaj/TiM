@@ -1,7 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import {Router} from "@angular/router";
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
+import {ObservableInput} from "rxjs/Observable";
 
 @Injectable()
 export class AuthenticationService {
@@ -11,6 +13,21 @@ export class AuthenticationService {
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
+    }
+
+    register(username: string, password: string, firstName: string, lastName: string, email: string): Observable<boolean> {
+        return this.http.post('/user/register', { login: username, password: password,  first_name: firstName, last_name: lastName, e_mail: email})
+            .map((response: Response) => {
+                // check resonse
+                let res = response.json() && response.json().status;
+                if (res === 'OK') {
+                    // return true to indicate successful register
+                    return true;
+                } else {
+                    // return false to indicate failed register
+                    return false;
+                }
+            });
     }
 
     login(username: string, password: string): Observable<boolean> {
