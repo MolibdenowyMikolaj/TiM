@@ -1,0 +1,31 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_zero_fragment"
+                android:icon="@drawable/ic_one"
+                android:title="Tracking" />
+        <item
+                android:id="@+id/nav_first_fragment"
+                android:icon="@drawable/ic_two"
+                android:title="Measuring" />
+        <item android:title="ACCOUNT">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                            android:id="@+id/nav_first_fragment2"
+                            android:icon="@drawable/ic_one"
+                            android:title="Loging" />
+                    <item
+                            android:id="@+id/nav_second_fragment2"
+                            android:icon="@drawable/ic_two"
+                            android:title="Registering" />
+                    <item
+                            android:id="@+id/nav_third_fragment2"
+                            android:icon="@drawable/ic_three"
+                            android:title="Account managing" />
+                </group>
+            </menu>
+        </item>
+    </group>
+</menu>
