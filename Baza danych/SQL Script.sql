@@ -32,7 +32,7 @@ create table RECORD
    id_user              int not null,
    active               bool default TRUE,
    count_step           int,
-   length               double,
+   distance               double,
    time_start           datetime,
    time_end             datetime,
    primary key (id_record)

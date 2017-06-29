@@ -18,22 +18,32 @@ let HistoryService = class HistoryService {
         this.http = http;
         this.token = localStorage.getItem('token');
     }
-    loadStats(id) {
+    loadAll() {
         let headers = new http_1.Headers();
         let authToken = localStorage.getItem("token");
         headers.append('Authorization', authToken);
         let options = new http_1.RequestOptions({ headers: headers });
-        return this.http.get("/history?id=" + id, options).toPromise().then(response => response.json())
+        return this.http.get("/history/all", options).toPromise().then(response => response.json())
             .catch((reason) => {
             console.log('Handle rejected promise (' + reason + ') here.');
         });
     }
-    loadLast(id) {
+    getIndexLast() {
         let headers = new http_1.Headers();
         let authToken = localStorage.getItem("token");
         headers.append('Authorization', authToken);
         let options = new http_1.RequestOptions({ headers: headers });
-        return this.http.get("/history/last?id=" + id, options).toPromise().then(response => response.json())
+        return this.http.get("/history/last", options).toPromise().then(response => response.json().id_record)
+            .catch((reason) => {
+            console.log('Handle rejected promise (' + reason + ') here.');
+        });
+    }
+    loadDetails(id) {
+        let headers = new http_1.Headers();
+        let authToken = localStorage.getItem("token");
+        headers.append('Authorization', authToken);
+        let options = new http_1.RequestOptions({ headers: headers });
+        return this.http.get("/history/details?id_record=" + id, options).toPromise().then(response => response.json())
             .catch((reason) => {
             console.log('Handle rejected promise (' + reason + ') here.');
         });

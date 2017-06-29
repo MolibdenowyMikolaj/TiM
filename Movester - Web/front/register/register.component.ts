@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../services/index";
-import {User} from "../models/index"
+import {User} from "../models/index";
 
 
 @Component({
@@ -12,10 +12,10 @@ export class RegisterComponent {
     loading: boolean;
     complete: boolean;
     error = '';
-    userData : User;
+    userData: User;
     confirmPassword: string;
 
-    constructor(private authenticationService: AuthenticationService, private router:Router) {
+    constructor(private authenticationService: AuthenticationService, private router: Router) {
     }
 
     ngOnInit() {
@@ -26,7 +26,7 @@ export class RegisterComponent {
 
     register() {
         this.loading = true;
-        if(this.userData.password == this.confirmPassword) {
+        if (this.userData.password == this.confirmPassword) {
             this.authenticationService.register(this.userData.login, this.userData.password, this.userData.first_name, this.userData.last_name, this.userData.e_mail)
                 .subscribe(result => {
                     if (result === true) {

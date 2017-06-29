@@ -5,17 +5,27 @@
             Czy zrobiłeś dziś więcej kroków od Twoich znajomych?
         </td>
         <td class="mainTile">
-            <h2> Mapka </h2>
+            <agm-map [latitude]="lat" [longitude]="lng">
+                <agm-polyline>
+                    <span *ngFor="let survey of details">
+                        <agm-polyline-point [latitude]="survey.latitude_start" [longitude]="survey.longitude_start"></agm-polyline-point>
+                        <agm-polyline-point [latitude]="survey.latitude_end" [longitude]="survey.longitude_end"></agm-polyline-point>
+                    </span>
+                </agm-polyline>
+
+            </agm-map>
         </td>
         <td class="mainTile">
             <h2> Ostatni pomiar </h2>
-            <p>Ostatni pomiar:</p>
-            <p *ngFor="let pomiar of lastRecord">
-                Długość: {{pomiar.length}}
-                Czas: {{pomiar.time}}
-            </p>
+            <div *ngIf="lastRecord">
+                <p>Kroki: {{lastRecord.count_step}}</p>
+                <p>Dystans: {{lastRecord.distance}}</p>
+                <p>Czas rozpoczęcia: {{lastRecord.time_start | date: 'dd/MM/yyyy'}}</p>
+                <p>Czas zakończenia: {{lastRecord.time_end | date: 'dd/MM/yyyy'}}</p>
+            </div>
 
         </td>
     </tr>
 </table>
 <br>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>

@@ -14,11 +14,25 @@ const index_1 = require("../services/index");
 let HomeComponent = class HomeComponent {
     constructor(historyService) {
         this.historyService = historyService;
-        this.lastRecord = new Array();
+        this.lat = 51.678418;
+        this.lng = 7.809007;
+        this.details = [];
     }
     ngOnInit() {
-        this.historyService.loadLast(parseInt(localStorage.getItem("currentUser"), 10)).then((record) => {
-            this.lastRecord = record;
+        this.historyService.getIndexLast().then((id) => {
+            this.historyService.loadAll().then((records) => {
+                for (let i = 0; i < records.length; i++) {
+                    if (records[i].id_record == id)
+                        this.lastRecord = records[i];
+                }
+            });
+            this.historyService.loadDetails(id).then((surveys) => {
+                this.details = surveys;
+                if (surveys.length > 0) {
+                    this.lat = surveys[0].latitude_end;
+                    this.lng = surveys[0].longitude_end;
+                }
+            });
         }, function (err) {
             console.log(err); // Error: "It broke"
         });

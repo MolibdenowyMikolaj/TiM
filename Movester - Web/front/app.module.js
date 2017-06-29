@@ -21,15 +21,22 @@ const index_4 = require("./home/index");
 const index_5 = require("./social/index");
 const index_6 = require("./statistics/index");
 const index_7 = require("./profile/index");
-const index_8 = require("./pipes/index");
+const index_8 = require("./view/index");
+const index_9 = require("./pipes/index");
+const core_2 = require("@agm/core");
+const common_1 = require("@angular/common");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
+            common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,
+            core_2.AgmCoreModule.forRoot({
+                apiKey: 'AIzaSyC8Cdai4ee9rMqyKEqSPPdl_mgXUO10uaY'
+            }),
             app_routing_1.routing
         ],
         declarations: [
@@ -40,7 +47,8 @@ AppModule = __decorate([
             index_5.SocialComponent,
             index_6.StatisticsComponent,
             index_7.ProfileComponent,
-            index_8.PairsPipe
+            index_8.ViewComponent,
+            index_9.PairsPipe
         ],
         providers: [
             auth_guard_1.AuthGuard,

@@ -7,6 +7,7 @@ import { SocialComponent } from './social/index';
 import { StatisticsComponent } from './statistics/index';
 import { ProfileComponent } from './profile/index';
 import { AuthGuard } from './auth.guard';
+import {ViewComponent} from "./view/index";
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     { path: 'social', component: SocialComponent, canActivate: [AuthGuard] },
     { path: 'statistics', component: StatisticsComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'view', component: ViewComponent, canActivate: [AuthGuard] },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
