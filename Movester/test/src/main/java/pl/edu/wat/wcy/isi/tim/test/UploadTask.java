@@ -13,20 +13,20 @@ import java.nio.charset.StandardCharsets;
 /**
  * Created by Ajron on 2017-06-24.
  */
-public class DownloadTokenTask extends AsyncTask<String, Integer, String> {
+public class UploadTask extends AsyncTask<String, Integer, String> {
     protected void onPreExecute(){}
 
     protected String doInBackground(String... webPage){
         String result = null;
         try {
 
-
-            String urlParameters  = webPage[1];
+            String urlParameters  = webPage[2];
             byte[] postData       = urlParameters.getBytes( StandardCharsets.UTF_8 );
             int    postDataLength = postData.length;
-            String request        = webPage[0] + "/user/login";
+            String request        = webPage[0] + webPage[1];
             URL    url            = new URL( request );
             HttpURLConnection conn= (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty ("Authorization", TestLogingActivity.text2);
             conn.setDoOutput( true );
             conn.setInstanceFollowRedirects( false );
             conn.setRequestMethod( "POST" );
