@@ -129,9 +129,6 @@ router.post('/close', function(req, res, next) {
             });
         } else {
             res.sendStatus(400);
-            console.log(recordId);
-            console.log(countStep);
-            console.log(distance)
         }
     } else {
         res.send({status: '401'});

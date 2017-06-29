@@ -13,7 +13,7 @@ export class SocialComponent {
     friends : User[];
 
     constructor(private userService: UserService, private router:Router) {
-        this.friends = new Array<User>();
+        this.friends = [];
         this.load();
     }
 

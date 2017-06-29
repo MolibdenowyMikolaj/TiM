@@ -16,7 +16,7 @@ let SocialComponent = class SocialComponent {
     constructor(userService, router) {
         this.userService = userService;
         this.router = router;
-        this.friends = new Array();
+        this.friends = [];
         this.load();
     }
     ngOnInit() {
