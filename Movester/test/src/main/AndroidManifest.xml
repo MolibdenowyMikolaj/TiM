@@ -26,36 +26,29 @@
                 android:label="Account managing">
         </activity>
         <activity
-                android:name=".TestHistoryViewingActivity"
-                android:label="History viewing">
-        </activity>
-        <activity
                 android:name=".TestLogingActivity"
                 android:label="Loging">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
         </activity>
         <activity
                 android:name=".TestMeasuringActivity"
                 android:label="Measuring">
+
         </activity>
         <activity
                 android:name=".TestRegisteringActivity"
                 android:label="Registering">
         </activity>
         <activity
-                android:name=".TestSettingsEditingActivity"
-                android:label="Settings editing">
-        </activity>
-        <activity
                 android:name=".LocationActivity"
                 android:label="Tracking" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <meta-data
                 android:name="com.google.android.maps.v2.API_KEY"
-                android:value="AIzaSyDDwDyffml71kn5hlbRHtasYA2STCu_n0s" />
+                android:value="AIzaSyC8Cdai4ee9rMqyKEqSPPdl_mgXUO10uaY" />
         <meta-data
                 android:name="com.google.android.gms.version"
                 android:value="@integer/google_play_services_version" />
