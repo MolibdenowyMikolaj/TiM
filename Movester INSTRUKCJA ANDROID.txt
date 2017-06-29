@@ -1,0 +1,32 @@
+podmieniamy wartoœæ w:
+test > src > main > java > pl.edu.wat.wcy.isi.tim.test > TestLogingActivity.class > static String web = "http://... ... :3001";
+
+uruchamiamy modu³:
+Run > Run 'test'
+
+w celu zalogowania siê potrzebne jest konto, by je za³o¿yæ:
+-przesuwamy gestem ekran od lewej krawêdzi do œrodka
+-wybieramy opcjê "Registering"
+-uzupe³niamy wszystkie wiersze (domyœlne has³o to "password")
+-klikamy przycisk "REGISTER"
+
+logujemy siê zgodnie z wprowadzonymi danymi i zatwierdzamy przyciskiem "LOG IN"
+
+gdy chcemy zmieniæ dane u¿ytkownika:
+-przesuwamy gestem ekran od lewej krawêdzi do œrodka
+-wybieramy opcjê "Account managing"
+-uzupe³niamy wszystkie wiersze (domyœlne nowe has³o to "password")
+-klikamy przycisk "UPDATE ACCOUNT INFORMATIONS"
+
+jeœli chcemy zalogowaæ siê na inne konto, musimy siê wylogowaæ:
+-przesuwamy gestem ekran od lewej krawêdzi do œrodka
+-wybieramy opcjê "Account managing"
+-klikamy przycisk "LOG OUT"
+
+w celu dokonania pomiaru:
+-przesuwamy gestem ekran od lewej krawêdzi do œrodka
+-wybieramy opcjê "Measuring" lub "Tracking"
+-w przypadku wybrania pierwszej opcji wciskamy przycisk "START MEASURING"
+-w przypadku wybrania drugiej opcji pomiar rozpocznie siê automatycznie
+
+by zakoñczyæ pomiar na ekranie "Tracking" wybieramy przycisk "END SURVEY"
