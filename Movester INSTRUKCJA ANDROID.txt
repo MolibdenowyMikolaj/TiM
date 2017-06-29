@@ -1,5 +1,8 @@
+projekt Android znajduje siê w folderze Movester
+
 podmieniamy wartoœæ w:
 test > src > main > java > pl.edu.wat.wcy.isi.tim.test > TestLogingActivity.class > static String web = "http://... ... :3001";
+na adres serwera
 
 uruchamiamy modu³:
 Run > Run 'test'

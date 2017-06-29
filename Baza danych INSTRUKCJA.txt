@@ -1,0 +1,3 @@
+Projekt bazy danych dedykowany jest na platformê MySQL firmy Oracle. Repozytorium nie posiada plików bazy danych ze wzglêdu na oszczêdnoœæ miejsca na repozytorium, natomiast przygotowany jest plik .sql do szybkiej instalacji SBD.
+
+W celu przygotowania BD uruchamiamy SQL Script.sql (z folderu Baza danych). Dane logowania do BD s¹ dowolne aczkolwiek aby je uwzglêdniæ w pliku app.js w projekcie serwera (folder Movester - Web).
