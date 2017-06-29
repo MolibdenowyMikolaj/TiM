@@ -9,8 +9,8 @@ import {User} from "../models/index"
 })
 export class ProfileComponent {
 
-    userData : User;
-    confirm_password : string;
+    userData: User;
+    confirm_password: string;
     loading: boolean;
     error: string;
 
@@ -22,7 +22,7 @@ export class ProfileComponent {
     }
 
     load() {
-        this.userService.loadUser(parseInt(localStorage.getItem("currentUser"),10)).then((user) => {
+        this.userService.loadUser(parseInt(localStorage.getItem("currentUser"), 10)).then((user) => {
             this.userData = user;
             this.userData.password = "***";
         }, function (err) {
