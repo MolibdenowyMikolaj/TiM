@@ -10,6 +10,7 @@ var moment = require('moment'); // time library for convenience
 var index = require('./routes/index');
 var user = require('./routes/user');
 var history = require('./routes/history');
+var record = require('./routes/record');
 
 // **
 // Data Base - MySQL, user: api, password: qwerMUSTANG69, database: application
@@ -17,7 +18,7 @@ var history = require('./routes/history');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
 
-    host: '172.23.242.191',
+    host: '192.168.8.118',
     user: 'api',
     password: 'qwerMUSTANG69',
     database: 'application'
@@ -87,6 +88,7 @@ app.use(cookieParser());
 app.use('/', index);
 app.use('/user', user);
 app.use('/history', history);
+app.use('/record', record);
 
 app.use('/front', express.static(path.join(__dirname, 'front')));
 app.use('/images', express.static(path.join(__dirname, 'images')));

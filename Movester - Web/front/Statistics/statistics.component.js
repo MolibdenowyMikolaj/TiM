@@ -14,10 +14,10 @@ const index_1 = require("../services/index");
 let StatisticsComponent = class StatisticsComponent {
     constructor(historyService) {
         this.historyService = historyService;
-        this.historia = new Array();
+        this.historia = [];
     }
     ngOnInit() {
-        this.historyService.loadStats(parseInt(localStorage.getItem("currentUser"), 10)).then((record) => {
+        this.historyService.loadAll().then((record) => {
             this.historia = record;
         }, function (err) {
             console.log(err); // Error: "It broke"

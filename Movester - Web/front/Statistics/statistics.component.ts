@@ -12,17 +12,15 @@ export class StatisticsComponent {
     historia: Record[];
 
     constructor(private historyService: HistoryService) {
-        this.historia = new Array<Record>();
+        this.historia = [];
     }
 
     ngOnInit() {
-        this.historyService.loadStats(parseInt(localStorage.getItem("currentUser"),10)).then((record) => {
+        this.historyService.loadAll().then((record) => {
             this.historia = record;
         }, function (err) {
             console.log(err); // Error: "It broke"
         });
     }
-
-
 
 }

@@ -15,13 +15,20 @@ import { HomeComponent } from './home/index';
 import { SocialComponent } from './social/index';
 import { StatisticsComponent } from './statistics/index';
 import { ProfileComponent } from './profile/index';
+import { ViewComponent } from './view/index';
 import { PairsPipe } from "./pipes/index";
+import { AgmCoreModule } from '@agm/core';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
     imports: [
         BrowserModule,
+        CommonModule,
         FormsModule,
         HttpModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyC8Cdai4ee9rMqyKEqSPPdl_mgXUO10uaY'
+        }),
         routing
     ],
     declarations: [
@@ -32,6 +39,7 @@ import { PairsPipe } from "./pipes/index";
         SocialComponent,
         StatisticsComponent,
         ProfileComponent,
+        ViewComponent,
         PairsPipe
     ],
     providers: [

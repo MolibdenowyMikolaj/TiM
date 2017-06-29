@@ -1,0 +1,23 @@
+<div  *ngIf="person && !loading">
+    <p>Profil użytkownika:</p>
+    <table class="personTile">
+        <tr>
+            <td>
+                <img src="images/Walker.png" width="60" height="40"/>
+            </td>
+            <td>
+                Imię: {{person.first_name}}
+                Nazwisko: {{person.last_name}}
+            </td>
+        </tr>
+    </table>
+    <button *ngIf="!isSelf()" (click)="toggleFriend()">{{buttonText}}</button>
+    <br>
+</div>
+<div *ngIf="!person && !loading">
+    Wybacz, ale nie ma takiej osoby ...
+</div>
+<div *ngIf="loading">
+    <div class="loader"></div>
+    <br/>
+</div>
