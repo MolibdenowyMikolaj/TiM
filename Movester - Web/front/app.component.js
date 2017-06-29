@@ -12,9 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
 const index_1 = require("./services/index");
+const index_2 = require("./services/index");
 let AppComponent = class AppComponent {
-    constructor(authenticationService, router) {
+    constructor(authenticationService, userService, router) {
         this.authenticationService = authenticationService;
+        this.userService = userService;
         this.router = router;
         this.searchText = '';
     }
@@ -35,16 +37,39 @@ let AppComponent = class AppComponent {
             return "menu";
     }
     search() {
-        this.searchText = 'Work in progress';
+        this.userService.searchUser(this.searchText).then((id) => {
+            this.router.navigate(['/view'], { queryParams: { id: id } });
+            console.log("wahat");
+        }, function (err) {
+            console.log(err); // Error: "It broke"
+        });
+    }
+    showDropdown(id) {
+        document.getElementById(id).classList.toggle("show");
+    }
+    onClick(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
     }
 };
 AppComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'app',
-        templateUrl: 'app.component.html'
+        templateUrl: 'app.component.html',
+        host: { '(document:click)': 'onClick($event)' }
     }),
-    __metadata("design:paramtypes", [index_1.AuthenticationService, router_1.Router])
+    __metadata("design:paramtypes", [index_1.AuthenticationService,
+        index_2.UserService,
+        router_1.Router])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

@@ -4,7 +4,7 @@
     <tr *ngFor="let friend of friends | pairs">
         <td class="doubleTile">
             <table>
-                <tr>
+                <tr (click)="router.navigate(['/view'], { queryParams: { id: friend[0].id_user } })">
                     <td>
                         <img src="images/Walker.png" width="60" height="40"/>
                     </td>
@@ -21,7 +21,7 @@
         </td>
         <td class="doubleTile" *ngIf="friend[1]">
             <table>
-                <tr>
+                <tr (click)="router.navigate(['/view'], { queryParams: { id: friend[1].id_user } })">
                     <td>
                         <img src="images/Walker.png" width="60" height="40"/>
                     </td>

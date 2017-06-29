@@ -18,6 +18,21 @@ let UserService = class UserService {
         this.http = http;
         this.token = localStorage.getItem('token');
     }
+    updateProfile(username, password, firstName, lastName, email, confirmationPassword) {
+        return this.http.post('/user/update', { login: username, password: password, first_name: firstName, last_name: lastName, e_mail: email, confirmation_password: confirmationPassword })
+            .map((response) => {
+            // check resonse
+            let res = response.json() && response.json().status;
+            if (res === 'OK') {
+                // return true to indicate successful register
+                return true;
+            }
+            else {
+                // return false to indicate failed register
+                return false;
+            }
+        });
+    }
     loadUser(id) {
         let headers = new http_1.Headers();
         let authToken = localStorage.getItem("token");
@@ -28,15 +43,39 @@ let UserService = class UserService {
             console.log('Handle rejected promise (' + reason + ') here.');
         });
     }
-    loadFriends(id) {
+    loadFriends() {
         let headers = new http_1.Headers();
         let authToken = localStorage.getItem("token");
         headers.append('Authorization', authToken);
         let options = new http_1.RequestOptions({ headers: headers });
-        return this.http.get("/user/friends?id=" + id, options).toPromise().then(response => response.json())
+        return this.http.get("/user/friends", options).toPromise().then(response => response.json())
             .catch((reason) => {
             console.log('Handle rejected promise (' + reason + ') here.');
         });
+    }
+    searchUser(val) {
+        let headers = new http_1.Headers();
+        let authToken = localStorage.getItem("token");
+        headers.append('Authorization', authToken);
+        let options = new http_1.RequestOptions({ headers: headers });
+        return this.http.get("/user/search?val=" + val, options).toPromise().then(response => response.json().id_user)
+            .catch((reason) => {
+            console.log('Handle rejected promise (' + reason + ') here.');
+        });
+    }
+    addFriend(userId) {
+        let headers = new http_1.Headers();
+        let authToken = localStorage.getItem("token");
+        headers.append('Authorization', authToken);
+        let options = new http_1.RequestOptions({ headers: headers });
+        this.http.post('/user/friend', { id_user: userId }, options).subscribe();
+    }
+    removeFriend(userId) {
+        let headers = new http_1.Headers();
+        let authToken = localStorage.getItem("token");
+        headers.append('Authorization', authToken);
+        let options = new http_1.RequestOptions({ headers: headers });
+        this.http.post('/user/unfriend', { id_user: userId }, options).subscribe();
     }
 };
 UserService = __decorate([

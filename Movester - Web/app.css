@@ -1,15 +1,70 @@
-﻿.navbar {
+﻿.dopdown {
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.show {
+    display: block;
+}
+
+.dropbtn {
+
+}
+
+.navbar {
     display: inline-block;
     background-color: silver;
     position: relative;
     display: flex;
 }
 
-.navbar a:hover {
-    color: blue;
+.navbar-search {
+    margin: 5px auto 5px auto;
 }
 
-.mainLogin{
+.navbar-dropdown {
+    color: white;
+}
+
+.navbar-dropdown .dropbtn {
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.navbar-dropdown .dropdown-content {
+    background-color: rgba(249, 213, 0, 0.47);
+    overflow: auto;
+    right: 0;
+    /*min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+}
+
+.navbar-dropdown a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-dropdown p {
+    margin: 8px 8px 8px 8px;
+    border-color: #e78400;
+    border-style: solid;
+    border-width: 1px;
+    border-right-width: 3px;
+    border-left: none;
+}
+
+.navbar-dropdown a:hover {
+    cursor: pointer;
+    color: darkslategray;
+}
+
+.mainLogin {
     text-align: center;
     background-color: darkred;
     border-radius: 8px;
@@ -17,69 +72,70 @@
     font-weight: bold;
 }
 
-.loginTile{
+.loginTile {
     background-color: lightyellow;
     border-radius: 12px;
-    margin-left:35%;
-    margin-right:35%;
+    margin-left: 35%;
+    margin-right: 35%;
     margin-bottom: 10px;
     margin-inside: 50px;
     width: 30%;
 }
 
-.loginLabel{
+.loginLabel {
     text-align: center;
     font-weight: bold;
     background-color: orange;
     border-radius: 12px;
     margin-bottom: 10px;
-    margin-left:5%;
+    margin-left: 5%;
     width: 55%;
     margin: auto;
 }
 
-.logo {
-    margin-left: 40%;
-    width: 15%;
+.logo img {
+    display: block;
+    margin: 0 auto;
 }
 
-.menu {
+.menu-bar {
     text-align: center;
-    background-color: darkred;
+    background-color: rgb(230, 172, 91);
     border-radius: 8px;
     font-family: Rockwell;
     font-weight: bold;
 }
 
-.menu a {
+.menu-bar a {
     text-decoration: none;
     color: black;
 }
 
-.menu a:hover {
+.menu-bar a:hover {
     color: slategray;
 }
 
+.menu {
+
+}
+
 .menu-selected {
-    background-color: darkorange;
-    border-radius: 16px;
+    background-color: rgba(230, 134, 0, 0.56);
     font-size: larger;
 }
 
 .body {
     margin: auto;
-    width: 50%;
-    background-color: #ffdd33;
+    width: 60%;
+    background-color: #fff776;
     border-radius: 8px;
-    border-color: orange;
 }
 
 .module {
     text-align: center;
 }
 
-
-.tile{
+.tile {
     text-align: center;
     margin-bottom: 2px;
     margin-left: 30%;
@@ -89,45 +145,45 @@
     width: 40%;
 }
 
-.tile:hover{
+.tile:hover {
     background-color: orange;
     font-weight: bold;
 }
 
-.doubleTileAlignment{
+.doubleTileAlignment {
     margin: auto;
     width: 96%;
     height: 96%;
 }
 
-.doubleTile{
+.doubleTile {
     text-align: left;
     background-color: lightyellow;
     border-radius: 8px;
     width: 48%;
 }
 
-.doubleTile:hover{
+.doubleTile:hover {
     background-color: orange;
     border-radius: 8px;
     font-weight: bold;
     width: 48%;
 }
 
-.mainTileAlignmnent{
+.mainTileAlignmnent {
     width: 96%;
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 2%;
 }
 
-.mainTileMargin{
+.mainTileMargin {
 
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.mainTile{
+.mainTile {
     text-align: center;
     background-color: lightyellow;
     border-radius: 12px;
@@ -135,18 +191,101 @@
     height: 80%;
 }
 
-.mainProfileTile{
+.mainProfileTile {
     background-color: lightyellow;
     border-radius: 12px;
     margin-left: 20%;
     margin-right: 20%;
 }
 
-.profileTile{
+.profileTile {
     text-align: center;
     font-weight: bold;
     background-color: orange;
     border-radius: 12px;
     width: 33%;
     height: 80%;
+}
+
+agm-map {
+    height: 300px;
+}
+
+.personTile {
+    text-align: center;
+    margin-bottom: 2px;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 8px;
+    width: 30%;
+}
+
+.mainRegister {
+    text-align: center;
+    background-color: darkred;
+    border-radius: 8px;
+    font-family: Rockwell;
+    font-weight: bold;
+}
+
+.registerTile {
+    text-align: center;
+    background-color: lightyellow;
+    border-radius: 12px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 10px;
+    margin-inside: 50px;
+    width: 30%;
+}
+
+.registerLabel {
+    text-align: center;
+    font-weight: bold;
+    background-color: orange;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    width: 55%;
+    margin: auto;
+}
+
+.mainLoader {
+    margin-top: 10%;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+}
+
+.loaderMessage {
+    text-align: center;
+}
+
+.loader {
+    margin: auto;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid orange;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

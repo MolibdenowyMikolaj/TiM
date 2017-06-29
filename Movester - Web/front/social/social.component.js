@@ -11,17 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const index_1 = require("../services/index");
+const router_1 = require("@angular/router");
 let SocialComponent = class SocialComponent {
-    constructor(userService) {
+    constructor(userService, router) {
         this.userService = userService;
-        this.friends = new Array();
+        this.router = router;
+        this.friends = [];
         this.load();
     }
     ngOnInit() {
         this.load();
     }
     load() {
-        this.userService.loadFriends(parseInt(localStorage.getItem("currentUser"), 10)).then((friends) => {
+        this.userService.loadFriends().then((friends) => {
             this.friends = friends;
         }, function (err) {
             console.log(err); // Error: "It broke"
@@ -33,7 +35,7 @@ SocialComponent = __decorate([
         selector: 'social',
         templateUrl: 'front/social/social.component.html'
     }),
-    __metadata("design:paramtypes", [index_1.UserService])
+    __metadata("design:paramtypes", [index_1.UserService, router_1.Router])
 ], SocialComponent);
 exports.SocialComponent = SocialComponent;
 //# sourceMappingURL=social.component.js.map

@@ -1,12 +1,12 @@
 <h2> Profil </h2>
 <p>Zmiana profilu:</p>
-<table *ngIf="user" class="mainProfileTile">
+<table *ngIf="userData" class="mainProfileTile">
     <tr>
         <td class="profileTile">
             Nowe imię:
         </td>
         <td>
-            <input type="text" [(ngModel)]="user.first_name">
+            <input type="text" [(ngModel)]="userData.first_name">
         </td>
     </tr>
     <tr>
@@ -14,7 +14,7 @@
             Nowe nazwisko:
         </td>
         <td>
-            <input type="text" [(ngModel)]="user.last_name">
+            <input type="text" [(ngModel)]="userData.last_name">
         </td>
     </tr>
     <tr>
@@ -22,7 +22,7 @@
             Nowy e-mail:
         </td>
         <td>
-            <input type="email" [(ngModel)]="user.e_mail">
+            <input type="email" [(ngModel)]="userData.e_mail">
         </td>
     </tr>
     <tr>
@@ -30,7 +30,7 @@
             Nowy login:
         </td>
         <td>
-            <input type="text" [(ngModel)]="user.login" >
+            <input type="text" [(ngModel)]="userData.login" >
         </td>
     </tr>
     <tr>
@@ -38,7 +38,7 @@
             Nowe hasło:
         </td>
         <td>
-            <input type="password" [(ngModel)]="user.password" autocomplete="off">
+            <input type="password" [(ngModel)]="userData.password" autocomplete="off">
         </td>
     </tr>
     <tr></tr>
@@ -53,7 +53,7 @@
             <button (click)="load()">Resetuj</button>
         </td>
         <td>
-            <button [disabled]="user == null" (click)="send()">Potwierdź</button>
+            <button [disabled]="user == null || loading" (click)="send()">Potwierdź</button>
         </td>
     </tr>
 </table>

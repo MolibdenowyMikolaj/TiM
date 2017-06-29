@@ -2,9 +2,8 @@
 <p>Historia pomiarów:</p>
 <div *ngFor="let pomiar of historia">
     <div class="tile">
-        ID: {{pomiar.id_record}}
-        Długość: {{pomiar.length}}
-        Czas: {{pomiar.time}}
+        Data: {{pomiar.time_start | date: 'dd/MM/yyyy'}}
+        Dystans: {{pomiar.distance}}
     </div>
 </div>
 <br>
